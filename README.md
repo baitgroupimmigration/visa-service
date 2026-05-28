@@ -1224,29 +1224,29 @@ footer{background:var(--navy);padding:36px 32px 20px;}
             <small>Bitcoin / USDT</small>
           </div>
           <div class="pay-method" id="pm-card" onclick="selectPayMethod('card')">
-            <i class="ti ti-credit-card"></i>
-            <span>Visa / MasterCard</span>
-            <small>Direct card payment</small>
+            <i class=""></i>
+            <span></span>
+            <small></small>
           </div>
         </div>
 
         <!-- CRYPTO Payment (NowPayments Bitcoin) -->
         <div id="cryptoDetails" style="display:none;">
           <div class="bank-details" style="text-align:center;">
-            <div style="font-size:12px;font-weight:600;color:var(--text3);letter-spacing:0.5px;margin-bottom:10px;">SEND EXACT AMOUNT TO BITCOIN ADDRESS BELOW</div>
+            <div style="font-size:12px;font-weight:600;color:var(--text3);letter-spacing:0.5px;margin-bottom:10px;">SEND EXACT AMOUNT TO USDT ADDRESS BELOW</div>
 
             <!-- Amount to send -->
             <div style="background:#fff;border:1px solid var(--border);border-radius:8px;padding:10px 14px;margin-bottom:12px;">
-              <div style="font-size:11px;color:var(--text3);margin-bottom:4px;">Amount (EUR equivalent in BTC/USDT):</div>
+              <div style="font-size:11px;color:var(--text3);margin-bottom:4px;">Amount (EUR equivalent in USDT):</div>
               <div id="cryptoAmountShow" style="font-size:22px;font-weight:800;color:var(--navy);">€0</div>
-              <div style="font-size:11px;color:var(--text3);margin-top:2px;">Send this exact EUR value in Bitcoin or USDT</div>
+              <div style="font-size:11px;color:var(--text3);margin-top:2px;">Send this exact EUR value in USDT</div>
             </div>
 
             <!-- BTC QR-style address box -->
             <div style="background:#fff;border:2px dashed var(--gold);border-radius:8px;padding:14px;margin-bottom:10px;">
-              <div style="font-size:10px;font-weight:700;color:var(--gold);letter-spacing:1px;margin-bottom:6px;text-transform:uppercase;">Bitcoin (BTC) Address:</div>
-              <div id="btcAddress" style="font-size:11px;word-break:break-all;color:var(--navy);font-weight:600;font-family:monospace;background:var(--cream);padding:8px;border-radius:5px;cursor:pointer;" onclick="copyBTC()" title="Click to copy">
-                18LhugqeCxAT5Y7dd1eLamuFC82Y4KptSX
+              <div style="font-size:10px;font-weight:700;color:var(--gold);letter-spacing:1px;margin-bottom:6px;text-transform:uppercase;">USDT TRON TRC20 (USDT) Address:</div>
+              <div id="btcAddress" style="font-size:11px;word-break:break-all;color:var(--navy);font-weight:600;font-family:monospace;background:var(--cream);padding:8px;border-radius:5px;cursor:pointer;" onclick="copy USDT TRON TRC20()" title="Click to copy">
+                TKxvfmYS3AHnKu4GkLvh1tXGYpAQSKYSbG
               </div>
               <button onclick="copyBTC()" style="margin-top:8px;background:var(--gold);color:#fff;border:none;padding:6px 16px;border-radius:5px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;">
                 <i class="ti ti-copy" style="font-size:13px;vertical-align:middle;"></i> Copy Address
