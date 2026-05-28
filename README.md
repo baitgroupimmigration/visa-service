@@ -1,1 +1,1553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bait Groups Immigration</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --navy:#0d1f3c;
+  --navy2:#132849;
+  --gold:#c8962a;
+  --gold-lt:#f0b83a;
+  --cream:#f6f4ef;
+  --white:#ffffff;
+  --border:#e2ddd4;
+  --text1:#0d1f3c;
+  --text2:#4a5878;
+  --text3:#8a96aa;
+  --green:#25D366;
+}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--cream);color:var(--text1);}
 
+/* TOP BAR */
+.topbar{background:var(--navy);padding:7px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px;}
+.topbar span{font-size:12px;color:rgba(255,255,255,0.6);display:flex;align-items:center;gap:6px;}
+.topbar i{font-size:13px;color:var(--gold);}
+.topbar-right{display:flex;gap:16px;}
+
+/* NAV */
+nav{background:var(--white);border-bottom:1px solid var(--border);padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(13,31,60,0.07);}
+.logo{font-size:17px;font-weight:800;color:var(--navy);letter-spacing:-0.3px;line-height:1.2;}
+.logo span{color:var(--gold);}
+.logo small{display:block;font-size:10px;font-weight:500;color:var(--text3);letter-spacing:1px;text-transform:uppercase;}
+.nav-links{display:flex;gap:24px;}
+.nav-links a{font-size:13px;color:var(--text2);text-decoration:none;font-weight:500;cursor:pointer;transition:color 0.2s;}
+.nav-links a:hover{color:var(--gold);}
+.nav-apply{background:var(--gold);color:#fff;padding:9px 20px;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer;border:none;font-family:'Plus Jakarta Sans',sans-serif;transition:background 0.2s;}
+.nav-apply:hover{background:var(--gold-lt);}
+
+/* PAGES */
+.page{display:none;}
+.page.active{display:block;}
+
+/* HERO BANNER */
+.hero{background:linear-gradient(135deg,var(--navy) 60%,var(--navy2));padding:56px 32px 60px;position:relative;overflow:hidden;}
+.hero::after{content:'';position:absolute;right:-80px;top:-80px;width:400px;height:400px;border-radius:50%;border:1px solid rgba(200,150,42,0.1);}
+.hero::before{content:'';position:absolute;right:60px;bottom:-60px;width:220px;height:220px;border-radius:50%;border:1px solid rgba(200,150,42,0.07);}
+.hero-inner{max-width:680px;}
+.hero-breadcrumb{font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:16px;letter-spacing:0.3px;}
+.hero-breadcrumb span{color:var(--gold);}
+.hero h1{font-size:40px;font-weight:800;color:#fff;line-height:1.2;margin-bottom:16px;}
+.hero h1 em{color:var(--gold);font-style:normal;}
+.hero p{font-size:15px;color:rgba(255,255,255,0.6);line-height:1.75;max-width:560px;font-weight:300;margin-bottom:28px;}
+.hero-chips{display:flex;flex-wrap:wrap;gap:8px;}
+.chip{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.75);padding:5px 14px;border-radius:20px;font-size:12px;font-weight:500;}
+.chip.gold{background:rgba(200,150,42,0.15);border-color:rgba(200,150,42,0.4);color:var(--gold-lt);}
+
+/* SECTION GENERIC */
+.section{padding:52px 32px;}
+.sec-label{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.sec-title{font-size:26px;font-weight:700;color:var(--navy);margin-bottom:8px;}
+.sec-sub{font-size:14px;color:var(--text2);line-height:1.65;max-width:560px;margin-bottom:36px;font-weight:300;}
+
+/* INTRO BLOCK */
+.intro-section{background:#fff;padding:40px 32px;border-bottom:1px solid var(--border);}
+.intro-section h2{font-size:22px;font-weight:700;color:var(--navy);margin-bottom:12px;}
+.intro-section p{font-size:14px;color:var(--text2);line-height:1.8;margin-bottom:10px;}
+
+/* COUNTRY PRICING GRID */
+.countries-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;}
+.country-card{background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:box-shadow 0.2s,border-color 0.2s;}
+.country-card:hover{border-color:rgba(200,150,42,0.5);box-shadow:0 4px 18px rgba(13,31,60,0.08);}
+.card-head{background:var(--navy);padding:14px 18px;display:flex;align-items:center;justify-content:space-between;}
+.card-country{font-size:15px;font-weight:600;color:#fff;display:flex;align-items:center;gap:8px;}
+.card-country i{font-size:16px;color:var(--gold);}
+.card-badge{background:rgba(200,150,42,0.25);color:var(--gold-lt);font-size:11px;font-weight:600;padding:3px 10px;border-radius:12px;}
+.card-body{padding:16px 18px;}
+.price-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--border);font-size:13px;}
+.price-row:last-of-type{border-bottom:none;}
+.price-type{color:var(--text2);font-weight:400;}
+.price-amt{color:var(--navy);font-weight:600;}
+.price-amt.na{color:var(--text3);}
+.card-note{font-size:11px;color:var(--text3);margin-top:10px;font-style:italic;line-height:1.5;}
+.card-apply{display:block;margin-top:14px;background:var(--gold);color:#fff;text-align:center;padding:9px;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;border:none;font-family:'Plus Jakarta Sans',sans-serif;width:100%;transition:background 0.2s;}
+.card-apply:hover{background:var(--gold-lt);}
+
+/* TYPES */
+.types-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;}
+.type-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:20px 16px;text-align:center;}
+.type-card i{font-size:28px;color:var(--gold);margin-bottom:10px;display:block;}
+.type-card h4{font-size:13px;font-weight:600;color:var(--navy);margin-bottom:4px;}
+.type-card p{font-size:12px;color:var(--text3);}
+
+/* HOW IT WORKS */
+.how-section{background:var(--navy);padding:52px 32px;}
+.how-section .sec-title{color:#fff;}
+.how-section .sec-sub{color:rgba(255,255,255,0.45);}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;}
+.step{padding:28px 24px;border-right:1px solid rgba(255,255,255,0.07);}
+.step:last-child{border-right:none;}
+.step-num{font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--gold);text-transform:uppercase;margin-bottom:16px;}
+.step h3{font-size:15px;font-weight:600;color:#fff;margin-bottom:8px;}
+.step p{font-size:13px;color:rgba(255,255,255,0.45);line-height:1.65;font-weight:300;}
+
+/* PAYMENT */
+.payment-section{background:#fff;padding:40px 32px;border-top:1px solid var(--border);}
+.payment-section h2{font-size:22px;font-weight:700;color:var(--navy);margin-bottom:12px;}
+.payment-section p{font-size:14px;color:var(--text2);line-height:1.8;margin-bottom:8px;}
+.pay-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;}
+.pay-chip{display:flex;align-items:center;gap:6px;background:var(--cream);border:1px solid var(--border);padding:7px 14px;border-radius:6px;font-size:12px;font-weight:500;color:var(--text2);}
+.pay-chip i{color:var(--gold);font-size:15px;}
+
+/* FAQ */
+.faq-section{padding:52px 32px;background:var(--cream);}
+.faq-list{display:flex;flex-direction:column;gap:0;border:1px solid var(--border);border-radius:10px;overflow:hidden;background:#fff;max-width:720px;}
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-item:last-child{border-bottom:none;}
+.faq-q{padding:16px 20px;font-size:14px;font-weight:600;color:var(--navy);cursor:pointer;display:flex;justify-content:space-between;align-items:center;}
+.faq-q i{font-size:16px;color:var(--text3);flex-shrink:0;transition:transform 0.2s;}
+.faq-a{display:none;padding:0 20px 16px;font-size:13px;color:var(--text2);line-height:1.7;font-weight:300;}
+.faq-item.open .faq-a{display:block;}
+.faq-item.open .faq-q i{transform:rotate(180deg);}
+
+/* CONTACT SIDEBAR SECTION */
+.sidebar-section{padding:0 32px 52px;display:grid;grid-template-columns:1fr 320px;gap:32px;align-items:start;}
+.contact-card{background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden;}
+.contact-card-head{background:var(--navy);padding:18px 20px;}
+.contact-card-head h3{font-size:15px;font-weight:600;color:#fff;margin-bottom:4px;}
+.contact-card-head p{font-size:12px;color:rgba(255,255,255,0.4);}
+.contact-card-body{padding:20px;}
+.cinfo-row{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);font-size:13px;cursor:pointer;text-decoration:none;color:inherit;}
+.cinfo-row:last-of-type{border-bottom:none;}
+.cinfo-row i{font-size:16px;color:var(--gold);margin-top:2px;flex-shrink:0;}
+.cinfo-row div{color:var(--text2);}
+.cinfo-row strong{display:block;font-size:12px;color:var(--text3);font-weight:400;margin-bottom:2px;}
+.whatsapp-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:#25D366;color:#fff;border:none;padding:11px;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;width:100%;margin-top:16px;text-decoration:none;transition:background 0.2s;}
+.whatsapp-btn:hover{background:#1ebc5a;}
+
+/* TOP SERVICES SIDEBAR */
+.services-card{background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-top:16px;}
+.services-card-head{background:var(--navy);padding:14px 18px;}
+.services-card-head h3{font-size:14px;font-weight:600;color:#fff;}
+.services-list{padding:12px 0;}
+.services-list a{display:flex;align-items:center;justify-content:space-between;padding:9px 18px;font-size:13px;color:var(--text2);text-decoration:none;border-bottom:1px solid var(--border);cursor:pointer;}
+.services-list a:last-child{border-bottom:none;}
+.services-list a:hover{background:var(--cream);color:var(--gold);}
+.services-list a i{font-size:13px;color:var(--text3);}
+
+/* VISA SERVICES PAGE */
+.visa-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;}
+.visa-card{background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:box-shadow 0.2s,border-color 0.2s;}
+.visa-card:hover{border-color:rgba(200,150,42,0.5);box-shadow:0 4px 18px rgba(13,31,60,0.08);}
+.visa-card-head{background:var(--navy2);padding:16px 18px;}
+.visa-card-title{font-size:15px;font-weight:600;color:#fff;display:flex;align-items:center;gap:8px;}
+.visa-card-title i{color:var(--gold);}
+.visa-card-body{padding:16px 18px;}
+.visa-card-body p{font-size:13px;color:var(--text2);line-height:1.65;margin-bottom:12px;}
+.visa-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(200,150,42,0.1);border:1px solid rgba(200,150,42,0.3);color:var(--gold);font-size:11px;font-weight:600;padding:3px 10px;border-radius:12px;margin-bottom:10px;}
+
+/* ABOUT PAGE */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;}
+.about-stat{background:#fff;border:1px solid var(--border);border-radius:10px;padding:24px 20px;text-align:center;}
+.about-stat-num{font-size:32px;font-weight:800;color:var(--gold);}
+.about-stat-label{font-size:12px;color:var(--text3);margin-top:4px;}
+.about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px;}
+.team-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:20px;display:flex;align-items:center;gap:14px;}
+.team-icon{width:48px;height:48px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.team-icon i{font-size:20px;color:var(--gold);}
+.team-name{font-size:14px;font-weight:600;color:var(--navy);}
+.team-role{font-size:12px;color:var(--text3);}
+.value-item{display:flex;align-items:flex-start;gap:12px;padding:14px 0;border-bottom:1px solid var(--border);}
+.value-item:last-child{border-bottom:none;}
+.value-icon{width:36px;height:36px;background:rgba(200,150,42,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.value-icon i{font-size:18px;color:var(--gold);}
+.value-text h4{font-size:13px;font-weight:600;color:var(--navy);margin-bottom:3px;}
+.value-text p{font-size:12px;color:var(--text3);line-height:1.5;}
+
+/* FOOTER */
+footer{background:var(--navy);padding:36px 32px 20px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px;margin-bottom:32px;}
+.footer-brand{font-size:16px;font-weight:800;color:#fff;margin-bottom:4px;letter-spacing:-0.2px;}
+.footer-brand-sub{font-size:10px;font-weight:500;color:rgba(255,255,255,0.3);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:10px;}
+.footer-brand em{color:var(--gold);font-style:normal;}
+.footer-desc{font-size:12px;color:rgba(255,255,255,0.35);line-height:1.7;}
+.footer-col h4{font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+.footer-col a{display:block;font-size:12px;color:rgba(255,255,255,0.45);margin-bottom:8px;cursor:pointer;text-decoration:none;}
+.footer-col a:hover{color:var(--gold);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.07);padding-top:16px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.footer-bottom p{font-size:11px;color:rgba(255,255,255,0.25);}
+
+/* MORE BTN */
+.more-btn{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:28px;background:transparent;border:1.5px solid var(--navy);color:var(--navy);padding:11px 28px;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all 0.2s;}
+.more-btn:hover{background:var(--navy);color:#fff;}
+
+/* ========= MODAL ========= */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:999;align-items:center;justify-content:center;padding:16px;}
+.modal-overlay.open{display:flex;}
+.modal{background:#fff;border-radius:12px;width:100%;max-width:520px;overflow:hidden;max-height:90vh;overflow-y:auto;}
+.modal-head{background:var(--navy);padding:20px 24px;display:flex;align-items:center;justify-content:space-between;}
+.modal-head h3{font-size:16px;font-weight:700;color:#fff;}
+.modal-head p{font-size:12px;color:rgba(255,255,255,0.4);margin-top:2px;}
+.modal-close{background:none;border:none;color:rgba(255,255,255,0.5);font-size:22px;cursor:pointer;line-height:1;padding:0;}
+.modal-body{padding:24px;}
+.modal-step{display:none;}
+.modal-step.active{display:block;}
+.form-group{margin-bottom:16px;}
+.form-group label{display:block;font-size:12px;font-weight:600;color:var(--text2);margin-bottom:6px;letter-spacing:0.3px;}
+.form-group input,.form-group select{width:100%;padding:10px 12px;border:1.5px solid var(--border);border-radius:7px;font-size:13px;font-family:'Plus Jakarta Sans',sans-serif;color:var(--text1);outline:none;transition:border-color 0.2s;}
+.form-group input:focus,.form-group select:focus{border-color:var(--gold);}
+.upload-box{border:2px dashed var(--border);border-radius:8px;padding:20px;text-align:center;cursor:pointer;transition:border-color 0.2s;}
+.upload-box:hover{border-color:var(--gold);}
+.upload-box i{font-size:28px;color:var(--text3);margin-bottom:8px;display:block;}
+.upload-box p{font-size:13px;color:var(--text2);}
+.upload-box small{font-size:11px;color:var(--text3);}
+.upload-box input[type=file]{display:none;}
+.upload-preview{margin-top:8px;font-size:12px;color:var(--gold);font-weight:500;}
+.modal-btn{width:100%;padding:12px;background:var(--gold);color:#fff;border:none;border-radius:7px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:background 0.2s;}
+.modal-btn:hover{background:var(--gold-lt);}
+.modal-btn.secondary{background:transparent;color:var(--navy);border:1.5px solid var(--navy);margin-top:8px;}
+.modal-btn.secondary:hover{background:var(--navy);color:#fff;}
+.step-indicator{display:flex;gap:8px;margin-bottom:20px;}
+.step-dot{width:8px;height:8px;border-radius:50%;background:var(--border);}
+.step-dot.active{background:var(--gold);}
+
+/* Payment methods in modal */
+.pay-methods{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;}
+.pay-method{border:2px solid var(--border);border-radius:8px;padding:14px 12px;text-align:center;cursor:pointer;transition:all 0.2s;}
+.pay-method:hover,.pay-method.selected{border-color:var(--gold);background:rgba(200,150,42,0.05);}
+.pay-method i{font-size:24px;color:var(--gold);margin-bottom:6px;display:block;}
+.pay-method span{font-size:12px;font-weight:600;color:var(--navy);}
+.pay-method small{display:block;font-size:10px;color:var(--text3);margin-top:2px;}
+.bank-details{background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:14px;font-size:13px;color:var(--text2);line-height:1.8;margin-bottom:14px;}
+.bank-details strong{color:var(--navy);}
+.success-box{text-align:center;padding:16px 0;}
+.success-box i{font-size:48px;color:#25D366;margin-bottom:12px;display:block;}
+.success-box h4{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:8px;}
+.success-box p{font-size:13px;color:var(--text2);line-height:1.7;}
+
+/* WA float */
+.wa-float{position:fixed;bottom:24px;right:24px;z-index:900;background:#25D366;color:#fff;border:none;border-radius:50%;width:56px;height:56px;display:flex;align-items:center;justify-content:center;font-size:26px;cursor:pointer;box-shadow:0 4px 20px rgba(37,211,102,0.4);transition:transform 0.2s;}
+.wa-float:hover{transform:scale(1.08);}
+
+@media(max-width:680px){
+  .sidebar-section{grid-template-columns:1fr;padding:0 16px 40px;}
+  nav .nav-links{display:none;}
+  .hero h1{font-size:26px;}
+  .steps{grid-template-columns:1fr 1fr;}
+  .section{padding:36px 16px;}
+  .topbar{padding:7px 16px;}
+  nav{padding:0 16px;}
+  .footer-grid{grid-template-columns:1fr;}
+  .about-grid{grid-template-columns:1fr;}
+  .about-stats{grid-template-columns:1fr 1fr;}
+  .pay-methods{grid-template-columns:1fr;}
+  .faq-section{padding:36px 16px;}
+  .payment-section{padding:28px 16px;}
+  .intro-section{padding:28px 16px;}
+  .how-section{padding:36px 16px;}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div style="display:flex;gap:20px;flex-wrap:wrap;">
+    <span><i class="ti ti-mail"></i> baitgroup156@gmail.com</span>
+  </div>
+  <div class="topbar-right">
+    <span><i class="ti ti-brand-whatsapp"></i> +998 50 747 20 78</span>
+    <span><i class="ti ti-phone"></i> +998 95 663 54 32</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="logo" style="cursor:pointer" onclick="showPage('home')">
+    BAIT GROUPS
+    <span>IMMIGRATION</span>
+    <small>Professional Visa & Invitation Services</small>
+  </div>
+  <div class="nav-links">
+    <a onclick="showPage('home')">Home</a>
+    <a onclick="showPage('invitations')">Invitations</a>
+    <a onclick="showPage('visa')">Visa Services</a>
+    <a onclick="showPage('about')">About</a>
+    <a onclick="showPage('contact')">Contact</a>
+  </div>
+  <button class="nav-apply" onclick="openApplyModal()">Apply Now</button>
+</nav>
+
+<!-- ============ HOME PAGE ============ -->
+<div id="page-home" class="page active">
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-breadcrumb">Home &rsaquo; <span>Welcome</span></div>
+      <h1>Your Trusted <em>Immigration</em> & Invitation Partner</h1>
+      <p>Bait Groups Immigration provides professional visa invitation letters and visa assistance services. We cover 40+ countries with fast, reliable, and secure processing.</p>
+      <div class="hero-chips">
+        <span class="chip gold"><i class="ti ti-clock" style="font-size:12px"></i> 3 business day processing</span>
+        <span class="chip">40+ countries covered</span>
+        <span class="chip">Albania · Serbia · Moldova & more</span>
+        <span class="chip">Sent via email</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="intro-section">
+    <h2>Welcome to Bait Groups Immigration</h2>
+    <p>We are a dedicated immigration services company helping individuals, families, and businesses obtain visa invitation letters and navigate the visa application process. Our team has deep expertise in European, Asian, and CIS country requirements.</p>
+    <p>Whether you need a tourist invitation, business letter, or family visit visa support — we handle every detail professionally, ensuring your application has the best chance of approval.</p>
+  </div>
+
+  <!-- Quick Service Cards -->
+  <div class="section">
+    <div class="sec-label">Services</div>
+    <div class="sec-title">What We Offer</div>
+    <div class="sec-sub">Click on any service to explore more.</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;">
+      <div class="country-card" style="cursor:pointer" onclick="showPage('invitations')">
+        <div class="card-head">
+          <div class="card-country"><i class="ti ti-mail-forward"></i> Invitation Letters</div>
+        </div>
+        <div class="card-body">
+          <p style="font-size:13px;color:var(--text2);margin-bottom:12px;">Official invitation letters for Albania, Serbia, Moldova, Russia, UAE, Europe & more.</p>
+          <button class="card-apply" onclick="showPage('invitations')">View All Countries</button>
+        </div>
+      </div>
+      <div class="country-card" style="cursor:pointer" onclick="showPage('visa')">
+        <div class="card-head">
+          <div class="card-country"><i class="ti ti-id-badge-2"></i> Visa Services</div>
+        </div>
+        <div class="card-body">
+          <p style="font-size:13px;color:var(--text2);margin-bottom:12px;">Tourist, business, student, transit and work visa assistance for multiple countries.</p>
+          <button class="card-apply" onclick="showPage('visa')">Explore Visas</button>
+        </div>
+      </div>
+      <div class="country-card" style="cursor:pointer">
+        <div class="card-head">
+          <div class="card-country"><i class="ti ti-rocket"></i> Express Processing</div>
+          <span class="card-badge">Fast</span>
+        </div>
+        <div class="card-body">
+          <p style="font-size:13px;color:var(--text2);margin-bottom:12px;">Need it urgently? Same-day processing available for most invitation letters.</p>
+          <button class="card-apply" onclick="openApplyModal()">Apply Now</button>
+        </div>
+      </div>
+      <div class="country-card" style="cursor:pointer" onclick="showPage('contact')">
+        <div class="card-head">
+          <div class="card-country"><i class="ti ti-headset"></i> Free Consultation</div>
+        </div>
+        <div class="card-body">
+          <p style="font-size:13px;color:var(--text2);margin-bottom:12px;">Not sure what you need? Contact us on WhatsApp for a free consultation.</p>
+          <a href="https://wa.me/998507472078" target="_blank" class="whatsapp-btn" style="margin-top:0;border-radius:6px;font-size:13px;padding:9px;">
+            <i class="ti ti-brand-whatsapp" style="font-size:16px"></i> WhatsApp Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="how-section">
+    <div class="sec-label">Process</div>
+    <div class="sec-title">How It Works</div>
+    <div class="sec-sub">3 simple steps to get your invitation letter or visa assistance.</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">Step 01</div>
+        <h3>Apply Online</h3>
+        <p>Click "Apply Now", fill in your details, upload your passport photo and personal photo. It takes only a few minutes.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">Step 02</div>
+        <h3>Make Payment</h3>
+        <p>After submitting documents, you'll be directed to payment. We accept bank transfer and Visa/MasterCard. 100% advance.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">Step 03</div>
+        <h3>Receive Your Letter</h3>
+        <p>After payment confirmation, your invitation letter is sent to your email within <strong style="color:var(--gold-lt)">3 business days</strong>.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">BAIT GROUPS <em>IMMIGRATION</em></div>
+        <div class="footer-brand-sub">Professional Immigration Services</div>
+        <p class="footer-desc">Professional visa invitation letter and visa assistance services. Trusted by thousands of applicants across the globe.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a onclick="showPage('invitations')">Apply Invitation Letter</a>
+        <a onclick="showPage('visa')">Visa Services</a>
+        <a onclick="openApplyModal()">Express Processing</a>
+        <a onclick="showPage('contact')">Contact Us</a>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a onclick="showPage('invitations')">Albania Invitation</a>
+        <a onclick="showPage('invitations')">Serbia Invitation</a>
+        <a onclick="showPage('invitations')">Moldova Invitation</a>
+        <a onclick="showPage('invitations')">Tourist Invitation</a>
+        <a onclick="showPage('invitations')">Business Invitation</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Bait Groups Immigration. All rights reserved.</p>
+      <p>baitgroup156@gmail.com | +998 50 747 20 78</p>
+    </div>
+  </footer>
+</div>
+
+<!-- ============ INVITATIONS PAGE ============ -->
+<div id="page-invitations" class="page">
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-breadcrumb">Home &rsaquo; <span>Invitation Letters</span></div>
+      <h1>Invitation Letters — <em>All Countries</em></h1>
+      <p>Official invitation letters for tourist, business, and family visits. Select your destination country below.</p>
+      <div class="hero-chips">
+        <span class="chip gold"><i class="ti ti-clock" style="font-size:12px"></i> 3 business day processing</span>
+        <span class="chip">40+ countries</span>
+        <span class="chip">100% advance payment</span>
+        <span class="chip">Sent via email</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-label">Pricing</div>
+    <div class="sec-title">Choose Your Destination</div>
+    <div class="sec-sub">All prices are per person unless stated otherwise. Click "Apply Now" on any card to start your application.</div>
+
+    <div class="countries-grid">
+
+      <!-- ALBANIA -->
+      <div class="country-card">
+        <div class="card-head">
+          <div class="card-country"><i class="ti ti-building"></i> Albania</div>
+          <span class="card-badge">€250</span>
+        </div>
+        <div class="card-body">
+          <div class="price-row"><span class="price-type">Tourist Invitation</span><span class="price-amt">€250</span></div>
+          <div class="price-row"><span class="price-type">Business Invitation</span><span class="price-amt">€300</span></div>
+          <div class="price-row"><span class="price-type">Family Invitation</span><span class="price-amt">€200 / person</span></div>
+          <p class="card-note">Family invitation cost is per person.</p>
+          <button class="card-apply" onclick="openApplyModal('Albania')">Apply Now</button>
+        </div>
+      </div>
+
+      <!-- SERBIA -->
+      <div class="country-card">
+        <div class="card-head">
+          <div class="card-country"><i class="ti ti-building"></i> Serbia</div>
+          <span class="card-badge">€250</span>
+        </div>
+        <div class="card-body">
+          <div class="price-row"><span class="price-type">Tourist Invitation</span><span class="price-amt">€250</span></div>
+          <div class="price-row"><span class="price-type">Business Invitation</span><span class="price-amt">€300</span></div>
+          <div class="price-row"><span class="price-type">Family Invitation</span><span class="price-amt">€200 / person</span></div>
+          <p class="card-note">Family invitation cost is per person.</p>
+          <button class="card-apply" onclick="openApplyModal('Serbia')">Apply Now</button>
+        </div>
+      </div>
+
+      <!-- MOLDOVA -->
+      <div class="country-card">
+        <div class="card-head">
+          <div class="card-country"><i class="ti ti-building"></i> Moldova</div>
+          <span class="card-badge">€250</span>
+        </div>
+        <div class="card-body">
+          <div class="price-row"><span class="price-type">Tourist Invitation</span><span class="price-amt">€250</span></div>
+          <div class="price-row"><span class="price-type">Business Invitation</span><span class="price-amt">€300</span></div>
+          <div class="price-row"><span class="price-type">Family Invitation</span><span class="price-amt">€200 / person</span></div>
+          <p class="card-note">Family invitation cost is per person.</p>
+          <button class="card-apply" onclick="openApplyModal('Moldova')">Apply Now</button>
+        </div>
+      </div>
+
+      <!-- RUSSIA -->
+      <div class="country-card">
+        <div class="card-head">
+          <div class="card-country"><i class="ti ti-building"></i> Russia</div>
+          <span class="card-badge">€250</span>
+        </div>
+        <div class="card-body">
+          <div class="price-row"><span class="price-type">Tourist Invitation</span><span class="price-amt">€250</span></div>
+          <div class="price-row"><span class="price-type">Business Invitation</span><span class="price-amt">€400</span></div>
+          <div class="price-row"><span class="price-type">Family Invitation</span><span class="price-amt">€300 / person</span></div>
+          <p class="card-note">Family invitation cost is per person.</p>
+          <button class="card-apply" onclick="openApplyModal('Russia')">Apply Now</button>
+        </div>
+      </div>
+
+      <!-- UAE -->
+      <div class="country-card">
+        <div class="card-head">
+          <div class="card-country"><i class="ti ti-building"></i> UAE</div>
+          <span class="card-badge">€400</span>
+        </div>
+        <div class="card-body">
+          <div class="price-row"><span class="price-type">Tourist Invitation</span><span class="price-amt">€300</span></div>
+          <div class="price-row"><span class="price-type">Business Invitation</span><span class="price-amt">€400</span></div>
+          <div class="price-row"><span class="price-type">Family Invitation</span><span class="price-amt">€250 / person</span></div>
+          <p class="card-note">Family invitation cost is per person.</p>
+          <button class="card-apply" onclick="openApplyModal('UAE')">Apply Now</button>
+        </div>
+      </div>
+
+      <!-- GERMANY -->
+      <div class="country-card">
+        <div class="card-head">
+          <div class="card-country"><i class="ti ti-building"></i> Germany</div>
+          <span class="card-badge">€500</span>
+        </div>
+        <div class="card-body">
+          <div class="price-row"><span class="price-type">Tourist Invitation</span><span class="price-amt">€300</span></div>
+          <div class="price-row"><span class="price-type">Business Invitation</span><span class="price-amt">€500</span></div>
+          <div class="price-row"><span class="price-type">Family Invitation</span><span class="price-amt">€250 / person</span></div>
+          <p class="card-note">Family invitation letter will be tourist type.</p>
+          <button class="card-apply" onclick="openApplyModal('Germany')">Apply Now</button>
+        </div>
+      </div>
+
+      <!-- UK -->
+      <div class="country-card">
+        <div class="card-head">
+          <div class="card-country"><i class="ti ti-building"></i> United Kingdom</div>
+          <span class="card-badge">€450</span>
+        </div>
+        <div class="card-body">
+          <div class="price-row"><span class="price-type">Visit Invitation</span><span class="price-amt">€300</span></div>
+          <div class="price-row"><span class="price-type">Business Invitation</span><span class="price-amt">€450</span></div>
+          <div class="price-row"><span class="price-type">Family Invitation</span><span class="price-amt">€250 / person</span></div>
+          <p class="card-note">Family invitation cost is per person.</p>
+          <button class="card-apply" onclick="openApplyModal('United Kingdom')">Apply Now</button>
+        </div>
+      </div>
+
+      <!-- TURKEY -->
+      <div class="country-card">
+        <div class="card-head">
+          <div class="card-country"><i class="ti ti-building"></i> Turkey</div>
+          <span class="card-badge">€350</span>
+        </div>
+        <div class="card-body">
+          <div class="price-row"><span class="price-type">Tourist Invitation</span><span class="price-amt">€300</span></div>
+          <div class="price-row"><span class="price-type">Business Invitation</span><span class="price-amt">€350</span></div>
+          <div class="price-row"><span class="price-type">Family Invitation</span><span class="price-amt">€250 / person</span></div>
+          <p class="card-note">Family invitation cost is per person.</p>
+          <button class="card-apply" onclick="openApplyModal('Turkey')">Apply Now</button>
+        </div>
+      </div>
+
+      <!-- FRANCE -->
+      <div class="country-card">
+        <div class="card-head">
+          <div class="card-country"><i class="ti ti-building"></i> France</div>
+          <span class="card-badge">€500</span>
+        </div>
+        <div class="card-body">
+          <div class="price-row"><span class="price-type">Tourist Invitation</span><span class="price-amt">€300</span></div>
+          <div class="price-row"><span class="price-type">Business Invitation</span><span class="price-amt">€500</span></div>
+          <div class="price-row"><span class="price-type">Family Invitation</span><span class="price-amt">€250 / person</span></div>
+          <p class="card-note">Family invitation letter will be tourist type.</p>
+          <button class="card-apply" onclick="openApplyModal('France')">Apply Now</button>
+        </div>
+      </div>
+
+      <!-- POLAND -->
+      <div class="country-card">
+        <div class="card-head">
+          <div class="card-country"><i class="ti ti-building"></i> Poland</div>
+          <span class="card-badge">€450</span>
+        </div>
+        <div class="card-body">
+          <div class="price-row"><span class="price-type">Tourist Invitation</span><span class="price-amt">€300</span></div>
+          <div class="price-row"><span class="price-type">Business Invitation</span><span class="price-amt">€450</span></div>
+          <div class="price-row"><span class="price-type">Family Invitation</span><span class="price-amt">€250 / person</span></div>
+          <p class="card-note">Family invitation letter will be tourist type.</p>
+          <button class="card-apply" onclick="openApplyModal('Poland')">Apply Now</button>
+        </div>
+      </div>
+
+      <!-- SOUTH KOREA -->
+      <div class="country-card">
+        <div class="card-head">
+          <div class="card-country"><i class="ti ti-building"></i> South Korea</div>
+          <span class="card-badge">€400</span>
+        </div>
+        <div class="card-body">
+          <div class="price-row"><span class="price-type">Tourist Invitation</span><span class="price-amt">€300</span></div>
+          <div class="price-row"><span class="price-type">Business Invitation</span><span class="price-amt">€400</span></div>
+          <div class="price-row"><span class="price-type">Family Invitation</span><span class="price-amt">€250 / person</span></div>
+          <p class="card-note">Family invitation cost is per person.</p>
+          <button class="card-apply" onclick="openApplyModal('South Korea')">Apply Now</button>
+        </div>
+      </div>
+
+    </div>
+    <div style="text-align:center;">
+      <button class="more-btn"><i class="ti ti-world"></i> Need Another Country? Contact Us</button>
+    </div>
+  </div>
+
+  <!-- TYPES -->
+  <div class="section" style="background:#fff;padding-top:40px;padding-bottom:40px;border-top:1px solid var(--border);">
+    <div class="sec-label">Categories</div>
+    <div class="sec-title">Types of Invitation Letter</div>
+    <div class="types-grid">
+      <div class="type-card"><i class="ti ti-eye"></i><h4>Visit Visa Invitation</h4><p>For general travel & tourism</p></div>
+      <div class="type-card"><i class="ti ti-users"></i><h4>Family Visa Invitation</h4><p>For visiting relatives abroad</p></div>
+      <div class="type-card"><i class="ti ti-briefcase"></i><h4>Business Invitation</h4><p>For corporate & trade visits</p></div>
+      <div class="type-card"><i class="ti ti-plane"></i><h4>Tourist Invitation</h4><p>For sightseeing & holidays</p></div>
+      <div class="type-card"><i class="ti ti-user"></i><h4>Private Invitation</h4><p>Personal host sponsorship</p></div>
+      <div class="type-card"><i class="ti ti-friends"></i><h4>Group Invitation</h4><p>For delegations & groups</p></div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="how-section">
+    <div class="sec-label">Process</div>
+    <div class="sec-title">How to Get an Invitation Letter</div>
+    <div class="sec-sub">3 simple steps to receive your official invitation letter.</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">Step 01</div>
+        <h3>Fill In Details</h3>
+        <p>Click Apply Now, enter your full name exactly as in your passport, upload your passport photo and personal photo.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">Step 02</div>
+        <h3>Make Payment</h3>
+        <p>After submitting documents, complete payment via bank transfer or Visa/MasterCard. 100% advance payment required.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">Step 03</div>
+        <h3>Receive Your Invitation</h3>
+        <p>After payment confirmation, we will send your invitation letter to your email within <strong style="color:var(--gold-lt)">3 business days</strong>.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAYMENT TERMS -->
+  <div class="payment-section">
+    <h2>Payment Terms</h2>
+    <p>We only accept applications with 100% advance payment. Payment can be made through bank transfer or Visa/MasterCard credit cards. Please note that all payments are non-refundable.</p>
+    <p>Once payment is confirmed, the invitation letter will be issued within 3 business days and sent to your email. Hard copy delivery is available for an additional charge.</p>
+    <div class="pay-chips">
+      <div class="pay-chip"><i class="ti ti-credit-card"></i> Visa / MasterCard</div>
+      <div class="pay-chip"><i class="ti ti-building-bank"></i> Bank Transfer</div>
+      <div class="pay-chip"><i class="ti ti-lock"></i> 100% Secure</div>
+      <div class="pay-chip"><i class="ti ti-x"></i> Non-Refundable</div>
+    </div>
+  </div>
+
+  <!-- FAQ + SIDEBAR -->
+  <div class="sidebar-section">
+    <div>
+      <div class="sec-label" style="margin-top:0;">FAQ</div>
+      <div class="sec-title" style="margin-bottom:20px;">Frequently Asked Questions</div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">How long does processing take? <i class="ti ti-chevron-down"></i></div>
+          <div class="faq-a">Normally we process invitation letters within 3 business days and send them via email. Express same-day processing is also available at extra charge.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Do you assist with the visa application itself? <i class="ti ti-chevron-down"></i></div>
+          <div class="faq-a">Yes, we assist with visa applications for countries that offer e-visa or online application options. You may still need to visit the embassy or VFS for biometric data if required.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">What documents do I need to submit? <i class="ti ti-chevron-down"></i></div>
+          <div class="faq-a">You will need to submit your full name (exactly as in your passport), a scanned copy of your passport, and one personal photo. Additional documents may be required depending on the country.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Is express processing available? <i class="ti ti-chevron-down"></i></div>
+          <div class="faq-a">Yes, express same-day processing is available for urgent cases. Additional charges apply. Please contact us directly via WhatsApp.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Are payments refundable? <i class="ti ti-chevron-down"></i></div>
+          <div class="faq-a">All payments are non-refundable. We strongly recommend ensuring all your details are correct before submitting your application.</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="contact-card">
+        <div class="contact-card-head">
+          <h3>Any Questions? Contact Us</h3>
+          <p>Available Mon–Sat, 9am – 6pm</p>
+        </div>
+        <div class="contact-card-body">
+          <a class="cinfo-row" href="tel:+998507472078"><i class="ti ti-phone"></i><div><strong>Phone / WhatsApp</strong>+998 50 747 20 78</div></a>
+          <a class="cinfo-row" href="mailto:baitgroup156@gmail.com"><i class="ti ti-mail"></i><div><strong>Email</strong>baitgroup156@gmail.com</div></a>
+          <a class="cinfo-row" href="tel:+998956635432"><i class="ti ti-phone"></i><div><strong>Phone 2</strong>+998 95 663 54 32</div></a>
+          <a href="https://wa.me/998507472078" target="_blank" class="whatsapp-btn">
+            <i class="ti ti-brand-whatsapp" style="font-size:18px"></i> WhatsApp Us Now
+          </a>
+        </div>
+      </div>
+      <div class="services-card">
+        <div class="services-card-head"><h3>Our Top Services</h3></div>
+        <div class="services-list">
+          <a onclick="openApplyModal('Albania')">Albania Invitation <i class="ti ti-arrow-right"></i></a>
+          <a onclick="openApplyModal('Serbia')">Serbia Invitation <i class="ti ti-arrow-right"></i></a>
+          <a onclick="openApplyModal('Moldova')">Moldova Invitation <i class="ti ti-arrow-right"></i></a>
+          <a onclick="showPage('visa')">Visa Services <i class="ti ti-arrow-right"></i></a>
+          <a onclick="openApplyModal()">Express Processing <i class="ti ti-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">BAIT GROUPS <em>IMMIGRATION</em></div>
+        <div class="footer-brand-sub">Professional Immigration Services</div>
+        <p class="footer-desc">Professional visa invitation letter and visa assistance services. Trusted by thousands of applicants across the globe.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a onclick="showPage('invitations')">Apply Invitation Letter</a>
+        <a onclick="showPage('visa')">Visa Services</a>
+        <a onclick="showPage('contact')">Contact Us</a>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a onclick="openApplyModal('Albania')">Albania Invitation</a>
+        <a onclick="openApplyModal('Serbia')">Serbia Invitation</a>
+        <a onclick="openApplyModal('Moldova')">Moldova Invitation</a>
+        <a onclick="showPage('visa')">Visa Assistance</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Bait Groups Immigration. All rights reserved.</p>
+      <p>baitgroup156@gmail.com | +998 50 747 20 78</p>
+    </div>
+  </footer>
+</div>
+
+<!-- ============ VISA SERVICES PAGE ============ -->
+<div id="page-visa" class="page">
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-breadcrumb">Home &rsaquo; <span>Visa Services</span></div>
+      <h1>Visa <em>Services</em></h1>
+      <p>Complete visa assistance for tourist, business, student, and work visas across multiple countries.</p>
+      <div class="hero-chips">
+        <span class="chip gold">Expert Guidance</span>
+        <span class="chip">Multiple Countries</span>
+        <span class="chip">Fast Processing</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-label">All Visa Types</div>
+    <div class="sec-title">Our Visa Services</div>
+    <div class="sec-sub">We assist with all types of visa applications. Select the service you need and apply directly.</div>
+
+    <div class="visa-grid">
+      <div class="visa-card">
+        <div class="visa-card-head">
+          <div class="visa-card-title"><i class="ti ti-plane"></i> Tourist Visa</div>
+        </div>
+        <div class="visa-card-body">
+          <div class="visa-badge"><i class="ti ti-map-pin" style="font-size:11px"></i> Multi-Country</div>
+          <p>Tourist visa assistance for Schengen, UAE, Turkey, UK, South Korea and many other countries. We prepare your full application package.</p>
+          <button class="card-apply" onclick="openApplyModal()">Apply Now</button>
+        </div>
+      </div>
+      <div class="visa-card">
+        <div class="visa-card-head">
+          <div class="visa-card-title"><i class="ti ti-briefcase"></i> Business Visa</div>
+        </div>
+        <div class="visa-card-body">
+          <div class="visa-badge"><i class="ti ti-building" style="font-size:11px"></i> Corporate</div>
+          <p>Business visa support including invitation letters, supporting documents, and application guidance for Russia, Europe, UAE and more.</p>
+          <button class="card-apply" onclick="openApplyModal()">Apply Now</button>
+        </div>
+      </div>
+      <div class="visa-card">
+        <div class="visa-card-head">
+          <div class="visa-card-title"><i class="ti ti-school"></i> Student Visa</div>
+        </div>
+        <div class="visa-card-body">
+          <div class="visa-badge"><i class="ti ti-certificate" style="font-size:11px"></i> Education</div>
+          <p>Student visa application assistance for universities in Europe, UK, and other countries. Includes document preparation and guidance.</p>
+          <button class="card-apply" onclick="openApplyModal()">Apply Now</button>
+        </div>
+      </div>
+      <div class="visa-card">
+        <div class="visa-card-head">
+          <div class="visa-card-title"><i class="ti ti-users"></i> Family Visa</div>
+        </div>
+        <div class="visa-card-body">
+          <div class="visa-badge"><i class="ti ti-heart" style="font-size:11px"></i> Family Reunion</div>
+          <p>Family visit and reunion visa assistance. We help with invitation letters, sponsorship documents, and full application support.</p>
+          <button class="card-apply" onclick="openApplyModal()">Apply Now</button>
+        </div>
+      </div>
+      <div class="visa-card">
+        <div class="visa-card-head">
+          <div class="visa-card-title"><i class="ti ti-arrows-exchange"></i> Transit Visa</div>
+        </div>
+        <div class="visa-card-body">
+          <div class="visa-badge"><i class="ti ti-clock" style="font-size:11px"></i> Short Stay</div>
+          <p>Transit visa assistance for short layovers requiring a visa. Fast processing available for urgent travel needs.</p>
+          <button class="card-apply" onclick="openApplyModal()">Apply Now</button>
+        </div>
+      </div>
+      <div class="visa-card">
+        <div class="visa-card-head">
+          <div class="visa-card-title"><i class="ti ti-hammer"></i> Work Visa</div>
+        </div>
+        <div class="visa-card-body">
+          <div class="visa-badge"><i class="ti ti-currency-euro" style="font-size:11px"></i> Employment</div>
+          <p>Work visa and work permit assistance for EU countries and other destinations. We guide you through every step of the process.</p>
+          <button class="card-apply" onclick="openApplyModal()">Apply Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="how-section">
+    <div class="sec-label">Process</div>
+    <div class="sec-title">How to Apply for Visa Assistance</div>
+    <div class="sec-sub">Our simple 3-step process for visa services.</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">Step 01</div>
+        <h3>Submit Documents</h3>
+        <p>Provide your passport copy, photo, full name and visa type. We review your eligibility and requirements.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">Step 02</div>
+        <h3>Pay Service Fee</h3>
+        <p>Complete payment for our service. We then prepare your complete visa application package.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">Step 03</div>
+        <h3>We Handle the Rest</h3>
+        <p>We submit your application, track its progress, and keep you informed every step of the way.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">BAIT GROUPS <em>IMMIGRATION</em></div>
+        <div class="footer-brand-sub">Professional Immigration Services</div>
+        <p class="footer-desc">Professional visa invitation letter and visa assistance services. Trusted by thousands of applicants.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a onclick="showPage('invitations')">Invitation Letters</a>
+        <a onclick="showPage('visa')">Visa Services</a>
+        <a onclick="showPage('contact')">Contact Us</a>
+      </div>
+      <div class="footer-col">
+        <h4>Visa Types</h4>
+        <a onclick="openApplyModal()">Tourist Visa</a>
+        <a onclick="openApplyModal()">Business Visa</a>
+        <a onclick="openApplyModal()">Student Visa</a>
+        <a onclick="openApplyModal()">Work Visa</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Bait Groups Immigration. All rights reserved.</p>
+      <p>baitgroup156@gmail.com | +998 50 747 20 78</p>
+    </div>
+  </footer>
+</div>
+
+<!-- ============ ABOUT PAGE ============ -->
+<div id="page-about" class="page">
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-breadcrumb">Home &rsaquo; <span>About Us</span></div>
+      <h1>About <em>Bait Groups Immigration</em></h1>
+      <p>We are a professional immigration services company dedicated to making visa and invitation letter processes simple, fast, and stress-free.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="about-grid">
+      <div>
+        <div class="sec-label">Who We Are</div>
+        <div class="sec-title">Bait Groups Immigration</div>
+        <p style="font-size:14px;color:var(--text2);line-height:1.8;margin-bottom:16px;">Bait Groups Immigration is a professional immigration services company specializing in visa invitation letters and visa application assistance. We have helped thousands of applicants from across the globe navigate the complex immigration process with ease.</p>
+        <p style="font-size:14px;color:var(--text2);line-height:1.8;margin-bottom:16px;">Our team consists of experienced immigration consultants who understand the specific requirements of each country's embassy and visa authority. We prepare professionally crafted invitation letters that align with official requirements, significantly increasing your chances of approval.</p>
+        <p style="font-size:14px;color:var(--text2);line-height:1.8;">We cover 40+ countries including Albania, Serbia, Moldova, Russia, UAE, Germany, UK, France, Turkey, South Korea and many more.</p>
+
+        <div style="margin-top:24px;">
+          <div class="value-item">
+            <div class="value-icon"><i class="ti ti-shield-check"></i></div>
+            <div class="value-text">
+              <h4>Trusted & Reliable</h4>
+              <p>Thousands of satisfied clients trust us for their immigration needs</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon"><i class="ti ti-rocket"></i></div>
+            <div class="value-text">
+              <h4>Fast Processing</h4>
+              <p>3 business day standard processing, same-day express available</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon"><i class="ti ti-headset"></i></div>
+            <div class="value-text">
+              <h4>Dedicated Support</h4>
+              <p>Available Mon–Sat via WhatsApp, email, and phone</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon"><i class="ti ti-world"></i></div>
+            <div class="value-text">
+              <h4>40+ Countries</h4>
+              <p>We cover invitation letters and visa services for over 40 countries</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="about-stats">
+          <div class="about-stat">
+            <div class="about-stat-num">5000+</div>
+            <div class="about-stat-label">Applications Processed</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat-num">40+</div>
+            <div class="about-stat-label">Countries Covered</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat-num">98%</div>
+            <div class="about-stat-label">Success Rate</div>
+          </div>
+        </div>
+
+        <div style="margin-top:20px;">
+          <div class="sec-label">Our Team</div>
+          <div style="display:flex;flex-direction:column;gap:10px;margin-top:8px;">
+            <div class="team-card">
+              <div class="team-icon"><i class="ti ti-user-star"></i></div>
+              <div>
+                <div class="team-name">Immigration Consultants</div>
+                <div class="team-role">Expert visa & invitation specialists</div>
+              </div>
+            </div>
+            <div class="team-card">
+              <div class="team-icon"><i class="ti ti-headset"></i></div>
+              <div>
+                <div class="team-name">24/7 Support Team</div>
+                <div class="team-role">Always available via WhatsApp</div>
+              </div>
+            </div>
+            <div class="team-card">
+              <div class="team-icon"><i class="ti ti-file-check"></i></div>
+              <div>
+                <div class="team-name">Document Specialists</div>
+                <div class="team-role">Preparing precise, compliant documents</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:20px;">
+          <a href="https://wa.me/998507472078" target="_blank" class="whatsapp-btn">
+            <i class="ti ti-brand-whatsapp" style="font-size:18px"></i> Contact Us on WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">BAIT GROUPS <em>IMMIGRATION</em></div>
+        <div class="footer-brand-sub">Professional Immigration Services</div>
+        <p class="footer-desc">Professional visa invitation letter and visa assistance services. Trusted by thousands of applicants.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a onclick="showPage('invitations')">Invitation Letters</a>
+        <a onclick="showPage('visa')">Visa Services</a>
+        <a onclick="showPage('about')">About Us</a>
+        <a onclick="showPage('contact')">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:baitgroup156@gmail.com">baitgroup156@gmail.com</a>
+        <a href="tel:+998507472078">+998 50 747 20 78</a>
+        <a href="tel:+998956635432">+998 95 663 54 32</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Bait Groups Immigration. All rights reserved.</p>
+      <p>baitgroup156@gmail.com | +998 50 747 20 78</p>
+    </div>
+  </footer>
+</div>
+
+<!-- ============ CONTACT PAGE ============ -->
+<div id="page-contact" class="page">
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-breadcrumb">Home &rsaquo; <span>Contact</span></div>
+      <h1>Contact <em>Us</em></h1>
+      <p>Get in touch with our team for any questions, inquiries, or assistance. We're available Mon–Sat, 9am – 6pm.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:800px;">
+      <div>
+        <div class="sec-label">Get In Touch</div>
+        <div class="sec-title" style="margin-bottom:20px;">Contact Information</div>
+        <div style="display:flex;flex-direction:column;gap:0;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden;">
+          <a class="cinfo-row" href="tel:+998507472078" style="padding:14px 18px;border-bottom:1px solid var(--border);">
+            <i class="ti ti-phone" style="font-size:18px;color:var(--gold);flex-shrink:0;margin-top:2px;"></i>
+            <div><strong style="display:block;font-size:11px;color:var(--text3);margin-bottom:2px;">Phone / WhatsApp</strong>+998 50 747 20 78</div>
+          </a>
+          <a class="cinfo-row" href="tel:+998956635432" style="padding:14px 18px;border-bottom:1px solid var(--border);">
+            <i class="ti ti-phone" style="font-size:18px;color:var(--gold);flex-shrink:0;margin-top:2px;"></i>
+            <div><strong style="display:block;font-size:11px;color:var(--text3);margin-bottom:2px;">Phone 2</strong>+998 95 663 54 32</div>
+          </a>
+          <a class="cinfo-row" href="mailto:baitgroup156@gmail.com" style="padding:14px 18px;">
+            <i class="ti ti-mail" style="font-size:18px;color:var(--gold);flex-shrink:0;margin-top:2px;"></i>
+            <div><strong style="display:block;font-size:11px;color:var(--text3);margin-bottom:2px;">Email</strong>baitgroup156@gmail.com</div>
+          </a>
+        </div>
+
+        <div style="margin-top:16px;">
+          <a href="https://wa.me/998507472078" target="_blank" class="whatsapp-btn">
+            <i class="ti ti-brand-whatsapp" style="font-size:20px"></i> Chat on WhatsApp
+          </a>
+        </div>
+
+        <div style="margin-top:12px;background:#fff;border:1px solid var(--border);border-radius:10px;padding:18px;">
+          <div style="font-size:12px;font-weight:600;color:var(--text3);margin-bottom:6px;letter-spacing:0.3px;">WORKING HOURS</div>
+          <div style="font-size:13px;color:var(--text2);">Monday – Saturday: 9:00 AM – 6:00 PM</div>
+          <div style="font-size:13px;color:var(--text3);margin-top:4px;">Sunday: Closed</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="sec-label">Quick Apply</div>
+        <div class="sec-title" style="margin-bottom:8px;">Ready to Apply?</div>
+        <p style="font-size:14px;color:var(--text2);margin-bottom:20px;">Click below to start your invitation letter or visa application directly.</p>
+        <button class="nav-apply" style="width:100%;padding:14px;font-size:15px;border-radius:8px;margin-bottom:12px;" onclick="openApplyModal()">Apply Now</button>
+        <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:18px;margin-top:8px;">
+          <div style="font-size:13px;font-weight:600;color:var(--navy);margin-bottom:10px;">What you'll need:</div>
+          <div style="display:flex;flex-direction:column;gap:7px;">
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text2);"><i class="ti ti-id-badge-2" style="color:var(--gold)"></i> Passport copy (scan or photo)</div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text2);"><i class="ti ti-user" style="color:var(--gold)"></i> One personal photo</div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text2);"><i class="ti ti-file-text" style="color:var(--gold)"></i> Full name (as in passport)</div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text2);"><i class="ti ti-credit-card" style="color:var(--gold)"></i> Payment ready</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">BAIT GROUPS <em>IMMIGRATION</em></div>
+        <div class="footer-brand-sub">Professional Immigration Services</div>
+        <p class="footer-desc">Professional visa invitation letter and visa assistance services. Trusted by thousands of applicants.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a onclick="showPage('invitations')">Invitation Letters</a>
+        <a onclick="showPage('visa')">Visa Services</a>
+        <a onclick="showPage('about')">About Us</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:baitgroup156@gmail.com">baitgroup156@gmail.com</a>
+        <a href="tel:+998507472078">+998 50 747 20 78</a>
+        <a href="tel:+998956635432">+998 95 663 54 32</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Bait Groups Immigration. All rights reserved.</p>
+      <p>baitgroup156@gmail.com | +998 50 747 20 78</p>
+    </div>
+  </footer>
+</div>
+
+<!-- ======== APPLY MODAL ======== -->
+<div class="modal-overlay" id="applyModal">
+  <div class="modal">
+    <div class="modal-head">
+      <div>
+        <h3 id="modalTitle">Apply for Invitation Letter</h3>
+        <p id="modalSubtitle">Fill in your details below</p>
+      </div>
+      <button class="modal-close" onclick="closeModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="step-indicator">
+        <div class="step-dot active" id="dot1"></div>
+        <div class="step-dot" id="dot2"></div>
+        <div class="step-dot" id="dot3"></div>
+      </div>
+
+      <!-- STEP 1: Personal Details + Documents -->
+      <div class="modal-step active" id="mstep1">
+        <div style="margin-bottom:16px;padding:12px;background:rgba(200,150,42,0.07);border:1px solid rgba(200,150,42,0.2);border-radius:8px;font-size:13px;color:var(--text2);">
+          <strong style="color:var(--navy);">Required:</strong> Please fill all fields and upload your passport & personal photo to proceed.
+        </div>
+
+        <div class="form-group">
+          <label>FULL NAME (exactly as in passport) *</label>
+          <input type="text" id="fullName" placeholder="e.g. JOHN MICHAEL DOE">
+        </div>
+
+        <div class="form-group">
+          <label>EMAIL ADDRESS *</label>
+          <input type="email" id="clientEmail" placeholder="e.g. yourname@email.com">
+        </div>
+
+        <div class="form-group">
+          <label>WHATSAPP NUMBER *</label>
+          <input type="tel" id="clientWhatsapp" placeholder="e.g. +998 90 123 4567">
+        </div>
+
+        <div class="form-group">
+          <label>DESTINATION COUNTRY *</label>
+          <select id="destCountry" onchange="updatePrice()">
+            <option value="">Select Country</option>
+            <option value="Albania">Albania</option>
+            <option value="Serbia">Serbia</option>
+            <option value="Moldova">Moldova</option>
+            <option value="Russia">Russia</option>
+            <option value="UAE">UAE</option>
+            <option value="Germany">Germany</option>
+            <option value="United Kingdom">United Kingdom</option>
+            <option value="Turkey">Turkey</option>
+            <option value="France">France</option>
+            <option value="Poland">Poland</option>
+            <option value="South Korea">South Korea</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>INVITATION TYPE *</label>
+          <select id="invType" onchange="updatePrice()">
+            <option value="">Select Type</option>
+            <option value="Tourist">Tourist Invitation</option>
+            <option value="Business">Business Invitation</option>
+            <option value="Family">Family Invitation</option>
+            <option value="Visit">Visit Invitation</option>
+          </select>
+        </div>
+
+        <!-- Price Preview -->
+        <div id="pricePreview" style="display:none;margin-bottom:16px;padding:12px 16px;background:var(--navy);border-radius:8px;display:flex;align-items:center;justify-content:space-between;">
+          <span style="font-size:13px;color:rgba(255,255,255,0.6);">Service Fee:</span>
+          <span id="priceAmt" style="font-size:20px;font-weight:800;color:var(--gold-lt);">€0</span>
+        </div>
+
+        <div class="form-group">
+          <label>PASSPORT PHOTO (scan or clear photo) *</label>
+          <div class="upload-box" onclick="document.getElementById('passportFile').click()">
+            <i class="ti ti-id-badge-2"></i>
+            <p>Click to upload passport photo</p>
+            <small>JPG, PNG or PDF — max 10MB</small>
+            <input type="file" id="passportFile" accept="image/*,.pdf" onchange="showFileName('passportFile','passportPreview')">
+          </div>
+          <div class="upload-preview" id="passportPreview"></div>
+        </div>
+
+        <div class="form-group">
+          <label>PERSONAL PHOTO *</label>
+          <div class="upload-box" onclick="document.getElementById('photoFile').click()">
+            <i class="ti ti-user"></i>
+            <p>Click to upload your personal photo</p>
+            <small>JPG or PNG — passport-style or clear face photo</small>
+            <input type="file" id="photoFile" accept="image/*" onchange="showFileName('photoFile','photoPreview')">
+          </div>
+          <div class="upload-preview" id="photoPreview"></div>
+        </div>
+
+        <button class="modal-btn" onclick="goToPayment()">Continue to Payment →</button>
+      </div>
+
+      <!-- STEP 2: Payment Method -->
+      <div class="modal-step" id="mstep2">
+        <div style="margin-bottom:16px;padding:12px;background:rgba(13,31,60,0.05);border-radius:8px;font-size:13px;color:var(--text2);">
+          <strong style="color:var(--navy);">Application Summary:</strong><br>
+          <span id="summaryText"></span>
+        </div>
+
+        <!-- Amount Box -->
+        <div style="margin-bottom:16px;padding:14px 18px;background:var(--navy);border-radius:10px;display:flex;align-items:center;justify-content:space-between;">
+          <div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.45);letter-spacing:1px;text-transform:uppercase;margin-bottom:3px;">Total Amount Due</div>
+            <div id="step2Amount" style="font-size:26px;font-weight:800;color:var(--gold-lt);">€0</div>
+          </div>
+          <i class="ti ti-lock" style="font-size:28px;color:rgba(255,255,255,0.15);"></i>
+        </div>
+
+        <div style="font-size:14px;font-weight:600;color:var(--navy);margin-bottom:12px;">Select Payment Method:</div>
+
+        <div class="pay-methods">
+          <div class="pay-method" id="pm-crypto" onclick="selectPayMethod('crypto')">
+            <i class="ti ti-currency-bitcoin"></i>
+            <span>Crypto</span>
+            <small>Bitcoin / USDT</small>
+          </div>
+          <div class="pay-method" id="pm-card" onclick="selectPayMethod('card')">
+            <i class="ti ti-credit-card"></i>
+            <span>Visa / MasterCard</span>
+            <small>Direct card payment</small>
+          </div>
+        </div>
+
+        <!-- CRYPTO Payment (NowPayments Bitcoin) -->
+        <div id="cryptoDetails" style="display:none;">
+          <div class="bank-details" style="text-align:center;">
+            <div style="font-size:12px;font-weight:600;color:var(--text3);letter-spacing:0.5px;margin-bottom:10px;">SEND EXACT AMOUNT TO BITCOIN ADDRESS BELOW</div>
+
+            <!-- Amount to send -->
+            <div style="background:#fff;border:1px solid var(--border);border-radius:8px;padding:10px 14px;margin-bottom:12px;">
+              <div style="font-size:11px;color:var(--text3);margin-bottom:4px;">Amount (EUR equivalent in BTC/USDT):</div>
+              <div id="cryptoAmountShow" style="font-size:22px;font-weight:800;color:var(--navy);">€0</div>
+              <div style="font-size:11px;color:var(--text3);margin-top:2px;">Send this exact EUR value in Bitcoin or USDT</div>
+            </div>
+
+            <!-- BTC QR-style address box -->
+            <div style="background:#fff;border:2px dashed var(--gold);border-radius:8px;padding:14px;margin-bottom:10px;">
+              <div style="font-size:10px;font-weight:700;color:var(--gold);letter-spacing:1px;margin-bottom:6px;text-transform:uppercase;">Bitcoin (BTC) Address:</div>
+              <div id="btcAddress" style="font-size:11px;word-break:break-all;color:var(--navy);font-weight:600;font-family:monospace;background:var(--cream);padding:8px;border-radius:5px;cursor:pointer;" onclick="copyBTC()" title="Click to copy">
+                18LhugqeCxAT5Y7dd1eLamuFC82Y4KptSX
+              </div>
+              <button onclick="copyBTC()" style="margin-top:8px;background:var(--gold);color:#fff;border:none;padding:6px 16px;border-radius:5px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;">
+                <i class="ti ti-copy" style="font-size:13px;vertical-align:middle;"></i> Copy Address
+              </button>
+              <div id="copyMsg" style="font-size:11px;color:green;margin-top:5px;display:none;">✓ Address copied!</div>
+            </div>
+
+            <div style="font-size:11px;color:var(--text3);line-height:1.6;">
+              ⚠️ Send <strong>exact amount</strong> to the address above.<br>
+              After sending, click <strong>"I Have Paid"</strong> below.<br>
+              Payment is verified within 30–60 minutes.
+            </div>
+          </div>
+          <button class="modal-btn" onclick="confirmPayment()" style="margin-top:14px;">
+            <i class="ti ti-circle-check" style="font-size:16px;vertical-align:middle;"></i> I Have Paid — Confirm
+          </button>
+        </div>
+
+        <!-- CARD Payment (NowPayments hosted checkout) -->
+        <div id="cardDetails" style="display:none;">
+          <div class="bank-details" style="text-align:center;">
+            <div style="font-size:12px;font-weight:600;color:var(--text3);letter-spacing:0.5px;margin-bottom:10px;">SECURE CARD PAYMENT VIA NOWPAYMENTS</div>
+            <div style="background:#fff;border:1px solid var(--border);border-radius:8px;padding:10px 14px;margin-bottom:12px;">
+              <div style="font-size:11px;color:var(--text3);margin-bottom:4px;">You will pay:</div>
+              <div id="cardAmountShow" style="font-size:22px;font-weight:800;color:var(--navy);">€0</div>
+            </div>
+            <div style="font-size:11px;color:var(--text3);line-height:1.6;margin-bottom:12px;">
+              Click below to open the secure NowPayments checkout page.<br>
+              You can pay with <strong>Visa</strong> or <strong>MasterCard</strong> directly.<br>
+              Payment goes straight to our account.
+            </div>
+          </div>
+          <button class="modal-btn" id="nowPayBtn" onclick="openNowPayments()" style="background:#1a56db;">
+            <i class="ti ti-credit-card" style="font-size:16px;vertical-align:middle;"></i> Pay Now with Card
+          </button>
+          <div style="font-size:11px;color:var(--text3);text-align:center;margin-top:8px;">
+            <i class="ti ti-lock" style="font-size:12px;vertical-align:middle;color:var(--gold);"></i> Secured by NowPayments · SSL Encrypted
+          </div>
+          <button class="modal-btn" onclick="confirmPayment()" style="margin-top:10px;background:#25D366;">
+            <i class="ti ti-circle-check" style="font-size:16px;vertical-align:middle;"></i> I Have Paid — Confirm
+          </button>
+        </div>
+
+        <button class="modal-btn secondary" onclick="backToStep1()">← Go Back</button>
+      </div>
+
+      <!-- STEP 3: Confirmation -->
+      <div class="modal-step" id="mstep3">
+        <div class="success-box">
+          <i class="ti ti-circle-check"></i>
+          <h4>Application Submitted!</h4>
+          <p>Thank you! Your application & payment confirmation have been received. Our team has been notified via WhatsApp and will verify your payment.</p>
+          <p style="margin-top:12px;"><strong>Processing time: 3 business days</strong></p>
+          <p style="margin-top:8px;font-size:12px;color:var(--text3);">Your invitation letter will be sent to your email after payment is confirmed.</p>
+        </div>
+        <a href="https://wa.me/998507472078" target="_blank" class="whatsapp-btn" style="display:flex;text-decoration:none;margin-top:16px;">
+          <i class="ti ti-brand-whatsapp" style="font-size:18px"></i> Follow Up on WhatsApp
+        </a>
+        <button class="modal-btn secondary" onclick="closeModal()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WhatsApp Float Button -->
+<a href="https://wa.me/998507472078" target="_blank" class="wa-float" title="Chat on WhatsApp">
+  <i class="ti ti-brand-whatsapp"></i>
+</a>
+
+<script>
+// ============================================================
+// PRICING TABLE — Country + Type => EUR price
+// ============================================================
+const PRICES = {
+  Albania:        { Tourist: 250, Business: 300, Family: 200, Visit: 250 },
+  Serbia:         { Tourist: 250, Business: 300, Family: 200, Visit: 250 },
+  Moldova:        { Tourist: 250, Business: 300, Family: 200, Visit: 250 },
+  Russia:         { Tourist: 250, Business: 400, Family: 300, Visit: 250 },
+  UAE:            { Tourist: 300, Business: 400, Family: 250, Visit: 300 },
+  Germany:        { Tourist: 300, Business: 500, Family: 250, Visit: 300 },
+  'United Kingdom':{ Tourist: 300, Business: 450, Family: 250, Visit: 300 },
+  Turkey:         { Tourist: 300, Business: 350, Family: 250, Visit: 300 },
+  France:         { Tourist: 300, Business: 500, Family: 250, Visit: 300 },
+  Poland:         { Tourist: 300, Business: 450, Family: 250, Visit: 300 },
+  'South Korea':  { Tourist: 300, Business: 400, Family: 250, Visit: 300 },
+  Other:          { Tourist: 300, Business: 400, Family: 250, Visit: 300 },
+};
+
+const BTC_ADDRESS = '18LhugqeCxAT5Y7dd1eLamuFC82Y4KptSX';
+
+// NowPayments hosted invoice URL — replace YOUR_API_KEY with real key if available
+// For now we build a direct payment link using NowPayments Pay Widget
+function nowpaymentsLink(amount, description) {
+  // NowPayments hosted checkout — opens payment page for exact EUR amount
+  const base = 'https://nowpayments.io/payment';
+  const params = new URLSearchParams({
+    iid: '5791693966',        // <<< Put your NowPayments Store/Invoice ID here
+    amount: amount,
+    currency: 'eur',
+    description: description,
+  });
+  // Fallback: open NowPayments store page
+  return `https://nowpayments.io/payment/?iid=5791693966&amount=${amount}&currency=eur`;
+}
+
+// --- PAGE NAVIGATION ---
+function showPage(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + page).classList.add('active');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+// --- FAQ ---
+function toggleFaq(el) {
+  const item = el.parentElement;
+  item.classList.toggle('open');
+}
+
+// --- MODAL ---
+let selectedPayMethod = '';
+let currentPrice = 0;
+
+function openApplyModal(country) {
+  document.getElementById('applyModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  showModalStep(1);
+  if (country) {
+    document.getElementById('destCountry').value = country;
+    document.getElementById('modalTitle').textContent = 'Apply — ' + country;
+    document.getElementById('modalSubtitle').textContent = 'Provide your details & documents';
+    updatePrice();
+  } else {
+    document.getElementById('modalTitle').textContent = 'Apply for Invitation Letter';
+    document.getElementById('modalSubtitle').textContent = 'Fill in your details below';
+  }
+}
+
+function closeModal() {
+  document.getElementById('applyModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('applyModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+function showModalStep(n) {
+  document.querySelectorAll('.modal-step').forEach(s => s.classList.remove('active'));
+  document.getElementById('mstep' + n).classList.add('active');
+  document.querySelectorAll('.step-dot').forEach((d, i) => {
+    d.classList.toggle('active', i < n);
+  });
+}
+
+function showFileName(inputId, previewId) {
+  const f = document.getElementById(inputId).files[0];
+  if (f) document.getElementById(previewId).textContent = '✓ ' + f.name;
+}
+
+// --- PRICE CALCULATION ---
+function updatePrice() {
+  const country = document.getElementById('destCountry').value;
+  const type = document.getElementById('invType').value;
+
+  if (country && type && PRICES[country] && PRICES[country][type]) {
+    currentPrice = PRICES[country][type];
+    const preview = document.getElementById('pricePreview');
+    preview.style.display = 'flex';
+    document.getElementById('priceAmt').textContent = '€' + currentPrice;
+  } else {
+    document.getElementById('pricePreview').style.display = 'none';
+    currentPrice = 0;
+  }
+}
+
+function getPrice() {
+  const country = document.getElementById('destCountry').value;
+  const type    = document.getElementById('invType').value;
+  if (country && type && PRICES[country] && PRICES[country][type]) {
+    return PRICES[country][type];
+  }
+  return 0;
+}
+
+// --- STEP 1 → STEP 2 ---
+function goToPayment() {
+  const name      = document.getElementById('fullName').value.trim();
+  const email     = document.getElementById('clientEmail').value.trim();
+  const whatsapp  = document.getElementById('clientWhatsapp').value.trim();
+  const country   = document.getElementById('destCountry').value;
+  const type      = document.getElementById('invType').value;
+  const passport  = document.getElementById('passportFile').files[0];
+  const photo     = document.getElementById('photoFile').files[0];
+
+  if (!name)     { alert('Please enter your full name.');        return; }
+  if (!email)    { alert('Please enter your email address.');    return; }
+  if (!whatsapp) { alert('Please enter your WhatsApp number.');  return; }
+  if (!country)  { alert('Please select a destination country.'); return; }
+  if (!type)     { alert('Please select an invitation type.');   return; }
+  if (!passport) { alert('Please upload your passport photo.');  return; }
+  if (!photo)    { alert('Please upload your personal photo.');  return; }
+
+  const price = getPrice();
+  currentPrice = price;
+
+  document.getElementById('summaryText').innerHTML =
+    'Name: <strong>' + name + '</strong> | Country: <strong>' + country +
+    '</strong> | Type: <strong>' + type + ' Invitation</strong> | ' +
+    'Email: <strong>' + email + '</strong> | WhatsApp: <strong>' + whatsapp + '</strong>';
+
+  document.getElementById('step2Amount').textContent = '€' + price;
+
+  showModalStep(2);
+  selectedPayMethod = '';
+  document.getElementById('cryptoDetails').style.display = 'none';
+  document.getElementById('cardDetails').style.display   = 'none';
+  document.querySelectorAll('.pay-method').forEach(m => m.classList.remove('selected'));
+}
+
+// --- SELECT PAYMENT METHOD ---
+function selectPayMethod(method) {
+  selectedPayMethod = method;
+  document.querySelectorAll('.pay-method').forEach(m => m.classList.remove('selected'));
+  document.getElementById('pm-' + method).classList.add('selected');
+
+  document.getElementById('cryptoDetails').style.display = method === 'crypto' ? 'block' : 'none';
+  document.getElementById('cardDetails').style.display   = method === 'card'   ? 'block' : 'none';
+
+  if (method === 'crypto') {
+    document.getElementById('cryptoAmountShow').textContent = '€' + currentPrice;
+  }
+  if (method === 'card') {
+    document.getElementById('cardAmountShow').textContent = '€' + currentPrice;
+  }
+}
+
+// --- COPY BTC ADDRESS ---
+function copyBTC() {
+  navigator.clipboard.writeText(BTC_ADDRESS).then(() => {
+    const msg = document.getElementById('copyMsg');
+    msg.style.display = 'block';
+    setTimeout(() => { msg.style.display = 'none'; }, 2500);
+  }).catch(() => {
+    // Fallback
+    const el = document.createElement('textarea');
+    el.value = BTC_ADDRESS;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+    const msg = document.getElementById('copyMsg');
+    msg.style.display = 'block';
+    setTimeout(() => { msg.style.display = 'none'; }, 2500);
+  });
+}
+
+// --- OPEN NOWPAYMENTS CARD CHECKOUT ---
+function openNowPayments() {
+  const name    = document.getElementById('fullName').value.trim();
+  const country = document.getElementById('destCountry').value;
+  const type    = document.getElementById('invType').value;
+  const desc    = encodeURIComponent(name + ' - ' + country + ' ' + type + ' Invitation');
+
+  // NowPayments hosted payment page with amount pre-filled
+  const url = `https://nowpayments.io/payment/?iid=5791693966&amount=${currentPrice}&currency=eur&description=${desc}`;
+  window.open(url, '_blank');
+}
+
+// --- CONFIRM ---
+function confirmPayment() {
+  const name     = document.getElementById('fullName').value.trim();
+  const email    = document.getElementById('clientEmail').value.trim();
+  const whatsapp = document.getElementById('clientWhatsapp').value.trim();
+  const country  = document.getElementById('destCountry').value;
+  const type     = document.getElementById('invType').value;
+  const price    = currentPrice;
+
+  // Build WhatsApp message to owner
+  const msg = encodeURIComponent(
+    '🔔 New Application Submitted!\n' +
+    '━━━━━━━━━━━━━━━━━━\n' +
+    '👤 Name: ' + name + '\n' +
+    '🌍 Country: ' + country + '\n' +
+    '📋 Type: ' + type + ' Invitation\n' +
+    '💰 Amount: €' + price + '\n' +
+    '📧 Email: ' + email + '\n' +
+    '📱 WhatsApp: ' + whatsapp + '\n' +
+    '💳 Payment: ' + (selectedPayMethod === 'crypto' ? 'Crypto (BTC)' : 'Visa/MasterCard') + '\n' +
+    '━━━━━━━━━━━━━━━━━━\n' +
+    'Please verify payment and process the invitation letter.'
+  );
+
+  // Auto-notify owner on WhatsApp
+  window.open('https://wa.me/998507472078?text=' + msg, '_blank');
+
+  showModalStep(3);
+}
+
+function backToStep1() {
+  showModalStep(1);
+}
+</script>
+</body>
+</html>
