@@ -697,9 +697,9 @@ footer{background:var(--navy);padding:36px 32px 20px;}
           <p>Available Mon–Sat, 9am – 6pm</p>
         </div>
         <div class="contact-card-body">
-          <a class="cinfo-row" href="tel:+998507472078"><i class="ti ti-phone"></i><div><strong>Phone / WhatsApp</strong>+998 50 747 20 78</div></a>
+          <a class="cinfo-row" href="tel:+357 94 40 57 21"><i class="ti ti-phone"></i><div><strong>Phone / WhatsApp</strong>+357 94 40 57 21</div></a>
           <a class="cinfo-row" href="mailto:baitgroup156@gmail.com"><i class="ti ti-mail"></i><div><strong>Email</strong>baitgroup156@gmail.com</div></a>
-          <a class="cinfo-row" href="tel:+998956635432"><i class="ti ti-phone"></i><div><strong>Phone 2</strong>+998 95 663 54 32</div></a>
+          <a class="cinfo-row" href="tel:+35794405721"><i class="ti ti-phone"></i><div><strong>Phone 2</strong>+357 94 40 57 21</div></a>
           <a href="https://wa.me/998507472078" target="_blank" class="whatsapp-btn">
             <i class="ti ti-brand-whatsapp" style="font-size:18px"></i> WhatsApp Us Now
           </a>
@@ -740,8 +740,8 @@ footer{background:var(--navy);padding:36px 32px 20px;}
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 Bait Groups Immigration. All rights reserved.</p>
-      <p>baitgroup156@gmail.com | +998 50 747 20 78</p>
+      <p>© 2024 Bait Groups Immigration. All rights reserved.</p>
+      <p>baitgroup156@gmail.com | +357 94 40 57 21</p>
     </div>
   </footer>
 </div>
@@ -875,8 +875,8 @@ footer{background:var(--navy);padding:36px 32px 20px;}
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 Bait Groups Immigration. All rights reserved.</p>
-      <p>baitgroup156@gmail.com | +998 50 747 20 78</p>
+      <p>© 2024 Bait Groups Immigration. All rights reserved.</p>
+      <p>baitgroup156@gmail.com | +357 94 40 57 21</p>
     </div>
   </footer>
 </div>
@@ -976,7 +976,7 @@ footer{background:var(--navy);padding:36px 32px 20px;}
         </div>
 
         <div style="margin-top:20px;">
-          <a href="https://wa.me/998507472078" target="_blank" class="whatsapp-btn">
+          <a href="https://wa.me/35794405721" target="_blank" class="whatsapp-btn">
             <i class="ti ti-brand-whatsapp" style="font-size:18px"></i> Contact Us on WhatsApp
           </a>
         </div>
@@ -1001,13 +1001,13 @@ footer{background:var(--navy);padding:36px 32px 20px;}
       <div class="footer-col">
         <h4>Contact</h4>
         <a href="mailto:baitgroup156@gmail.com">baitgroup156@gmail.com</a>
-        <a href="tel:+998507472078">+998 50 747 20 78</a>
-        <a href="tel:+998956635432">+998 95 663 54 32</a>
+        <a href="tel:+35794405721">+357 94 40 57 21</a>
+        <a href="tel:+35794405721">+357 94 40 57 21</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 Bait Groups Immigration. All rights reserved.</p>
-      <p>baitgroup156@gmail.com | +998 50 747 20 78</p>
+      <p>© 2024 Bait Groups Immigration. All rights reserved.</p>
+      <p>baitgroup156@gmail.com | +357 94 40 57 21</p>
     </div>
   </footer>
 </div>
@@ -1043,7 +1043,7 @@ footer{background:var(--navy);padding:36px 32px 20px;}
         </div>
 
         <div style="margin-top:16px;">
-          <a href="https://wa.me/998507472078" target="_blank" class="whatsapp-btn">
+          <a href="https://wa.me/35794405721" target="_blank" class="whatsapp-btn">
             <i class="ti ti-brand-whatsapp" style="font-size:20px"></i> Chat on WhatsApp
           </a>
         </div>
@@ -1089,13 +1089,13 @@ footer{background:var(--navy);padding:36px 32px 20px;}
       <div class="footer-col">
         <h4>Contact</h4>
         <a href="mailto:baitgroup156@gmail.com">baitgroup156@gmail.com</a>
-        <a href="tel:+998507472078">+998 50 747 20 78</a>
-        <a href="tel:+998956635432">+998 95 663 54 32</a>
+        <a href="tel:+35794405721">+357 94 40 57 21</a>
+        <a href="tel:+35794405721">+357 94 40 57 21</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 Bait Groups Immigration. All rights reserved.</p>
-      <p>baitgroup156@gmail.com | +998 50 747 20 78</p>
+      <p>© 2024 Bait Groups Immigration. All rights reserved.</p>
+      <p>baitgroup156@gmail.com | +357 94 40 57 21</p>
     </div>
   </footer>
 </div>
@@ -1302,7 +1302,7 @@ footer{background:var(--navy);padding:36px 32px 20px;}
           <p style="margin-top:12px;"><strong>Processing time: 3 business days</strong></p>
           <p style="margin-top:8px;font-size:12px;color:var(--text3);">Your invitation letter will be sent to your email after payment is confirmed.</p>
         </div>
-        <a href="https://wa.me/998507472078" target="_blank" class="whatsapp-btn" style="display:flex;text-decoration:none;margin-top:16px;">
+        <a href="https://wa.me/35794405721" target="_blank" class="whatsapp-btn" style="display:flex;text-decoration:none;margin-top:16px;">
           <i class="ti ti-brand-whatsapp" style="font-size:18px"></i> Follow Up on WhatsApp
         </a>
         <button class="modal-btn secondary" onclick="closeModal()">Close</button>
@@ -1312,7 +1312,7 @@ footer{background:var(--navy);padding:36px 32px 20px;}
 </div>
 
 <!-- WhatsApp Float Button -->
-<a href="https://wa.me/998507472078" target="_blank" class="wa-float" title="Chat on WhatsApp">
+<a href="https://wa.me/35794405721" target="_blank" class="wa-float" title="Chat on WhatsApp">
   <i class="ti ti-brand-whatsapp"></i>
 </a>
 
@@ -1540,7 +1540,7 @@ function confirmPayment() {
   );
 
   // Auto-notify owner on WhatsApp
-  window.open('https://wa.me/998507472078?text=' + msg, '_blank');
+  window.open('https://wa.me/35794405721?text=' + msg, '_blank');
 
   showModalStep(3);
 }
