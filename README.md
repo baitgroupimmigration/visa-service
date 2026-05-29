@@ -270,8 +270,8 @@ footer{background:var(--navy);padding:36px 32px 20px;}
     <span><i class="ti ti-mail"></i> baitgroup156@gmail.com</span>
   </div>
   <div class="topbar-right">
-    <span><i class="ti ti-brand-whatsapp"></i> +998 50 747 20 78</span>
-    <span><i class="ti ti-phone"></i> +998 95 663 54 32</span>
+    <span><i class="ti ti-brand-whatsapp"></i> +357 94 40 57 21</span>
+    <span><i class="ti ti-phone"></i> +357 94 40 57 21</span>
   </div>
 </div>
 
@@ -411,8 +411,8 @@ footer{background:var(--navy);padding:36px 32px 20px;}
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 Bait Groups Immigration. All rights reserved.</p>
-      <p>baitgroup156@gmail.com | +998 50 747 20 78</p>
+      <p>© 2024 Bait Groups Immigration. All rights reserved.</p>
+      <p>baitgroup156@gmail.com | +357 94 40 57 21</p>
     </div>
   </footer>
 </div>
