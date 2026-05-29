@@ -1028,13 +1028,13 @@ footer{background:var(--navy);padding:36px 32px 20px;}
         <div class="sec-label">Get In Touch</div>
         <div class="sec-title" style="margin-bottom:20px;">Contact Information</div>
         <div style="display:flex;flex-direction:column;gap:0;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden;">
-          <a class="cinfo-row" href="tel:+998507472078" style="padding:14px 18px;border-bottom:1px solid var(--border);">
+          <a class="cinfo-row" href="tel:+35794405721" style="padding:14px 18px;border-bottom:1px solid var(--border);">
             <i class="ti ti-phone" style="font-size:18px;color:var(--gold);flex-shrink:0;margin-top:2px;"></i>
-            <div><strong style="display:block;font-size:11px;color:var(--text3);margin-bottom:2px;">Phone / WhatsApp</strong>+998 50 747 20 78</div>
+            <div><strong style="display:block;font-size:11px;color:var(--text3);margin-bottom:2px;">Phone / WhatsApp</strong>+357 94 40 57 21</div>
           </a>
-          <a class="cinfo-row" href="tel:+998956635432" style="padding:14px 18px;border-bottom:1px solid var(--border);">
+          <a class="cinfo-row" href="tel:+35794405721" style="padding:14px 18px;border-bottom:1px solid var(--border);">
             <i class="ti ti-phone" style="font-size:18px;color:var(--gold);flex-shrink:0;margin-top:2px;"></i>
-            <div><strong style="display:block;font-size:11px;color:var(--text3);margin-bottom:2px;">Phone 2</strong>+998 95 663 54 32</div>
+            <div><strong style="display:block;font-size:11px;color:var(--text3);margin-bottom:2px;">Phone 2</strong>+357 94 40 57 21</div>
           </a>
           <a class="cinfo-row" href="mailto:baitgroup156@gmail.com" style="padding:14px 18px;">
             <i class="ti ti-mail" style="font-size:18px;color:var(--gold);flex-shrink:0;margin-top:2px;"></i>
