@@ -700,7 +700,7 @@ footer{background:var(--navy);padding:36px 32px 20px;}
           <a class="cinfo-row" href="tel:+357 94 40 57 21"><i class="ti ti-phone"></i><div><strong>Phone / WhatsApp</strong>+357 94 40 57 21</div></a>
           <a class="cinfo-row" href="mailto:baitgroup156@gmail.com"><i class="ti ti-mail"></i><div><strong>Email</strong>baitgroup156@gmail.com</div></a>
           <a class="cinfo-row" href="tel:+35794405721"><i class="ti ti-phone"></i><div><strong>Phone 2</strong>+357 94 40 57 21</div></a>
-          <a href="https://wa.me/998507472078" target="_blank" class="whatsapp-btn">
+          <a href="https://wa.me/35794405721" target="_blank" class="whatsapp-btn">
             <i class="ti ti-brand-whatsapp" style="font-size:18px"></i> WhatsApp Us Now
           </a>
         </div>
